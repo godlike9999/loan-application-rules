@@ -1,0 +1,15 @@
+package com.loan_application.loan_application_rules;
+
+import java.lang.Number;
+
+rule "EligibilityApplicantTooOld"
+	dialect "mvel"
+	ruleflow-group "eligibility-rules"
+	when
+		The applicant is more than 70 years old
+		There is a loan
+	then
+		The applicant is not eligible
+		The loan is rejected because "applicant is too old"
+		Log rule name
+end

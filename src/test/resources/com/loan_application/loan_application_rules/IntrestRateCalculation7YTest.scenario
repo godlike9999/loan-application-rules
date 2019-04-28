@@ -1,0 +1,70 @@
+<scenario>
+  <name>IntrestRateCalculation7YTest.scenario</name>
+  <maxRuleFirings>100000</maxRuleFirings>
+  <globals/>
+  <fixtures>
+    <fact-data>
+      <type>Loan</type>
+      <fieldData>
+        <field-data>
+          <name>amount</name>
+          <value>290000</value>
+          <nature>4</nature>
+        </field-data>
+        <field-data>
+          <name>duration</name>
+          <value>7</value>
+          <nature>4</nature>
+        </field-data>
+      </fieldData>
+      <name>loan</name>
+      <isModify>false</isModify>
+    </fact-data>
+    <org.drools.workbench.models.testscenarios.shared.ActivateRuleFlowGroup>
+      <name>calculation-rules</name>
+    </org.drools.workbench.models.testscenarios.shared.ActivateRuleFlowGroup>
+    <execution-trace>
+      <executionTimeResult>31</executionTimeResult>
+      <numberOfRulesFired>1</numberOfRulesFired>
+    </execution-trace>
+    <expect-rule>
+      <ruleName>Simple interest rate calculation_11</ruleName>
+      <explanation>Rule [Simple interest rate calculation_11] was activated 1 times.</explanation>
+      <expectedFire>true</expectedFire>
+      <successResult>true</successResult>
+      <actualResult>1</actualResult>
+    </expect-rule>
+    <expect-fact>
+      <fieldValues>
+        <expect-field>
+          <fieldName>interestRate</fieldName>
+          <expected>0.47</expected>
+          <successResult>true</successResult>
+          <explanation>[loan] field [interestRate] was [0.47].</explanation>
+          <operator>==</operator>
+          <nature>1</nature>
+        </expect-field>
+        <expect-field>
+          <fieldName>monthlyRepayment</fieldName>
+          <expected>3468.6071428571427</expected>
+          <successResult>true</successResult>
+          <explanation>[loan] field [monthlyRepayment] was [3468.6071428571427].</explanation>
+          <operator>==</operator>
+          <nature>1</nature>
+        </expect-field>
+      </fieldValues>
+      <name>loan</name>
+      <anonymous>false</anonymous>
+    </expect-fact>
+  </fixtures>
+  <lastRunResult>2018-12-14 06:34:30.123 UTC</lastRunResult>
+  <rules/>
+  <inclusive>false</inclusive>
+  <packageName>com.loan_application.loan_application_rules</packageName>
+  <imports>
+    <imports/>
+  </imports>
+  <ksessions>
+    <string>defaultKieSession</string>
+  </ksessions>
+</scenario>

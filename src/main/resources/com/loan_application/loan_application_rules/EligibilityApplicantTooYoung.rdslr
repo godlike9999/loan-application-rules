@@ -1,0 +1,15 @@
+package com.loan_application.loan_application_rules;
+
+import java.lang.Number;
+
+rule "EligibilityApplicantTooYoung"
+	dialect "mvel"
+	ruleflow-group "eligibility-rules"
+	when
+		The applicant is less than 18 years old
+		There is a loan
+	then
+		The applicant is not eligible
+		The loan is rejected because "Applicant is too young"
+		Log rule name
+end

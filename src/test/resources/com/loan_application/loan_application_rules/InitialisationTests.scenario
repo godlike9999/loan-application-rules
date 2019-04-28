@@ -1,0 +1,92 @@
+<scenario>
+  <name>InitialisationTests.scenario</name>
+  <maxRuleFirings>100000</maxRuleFirings>
+  <globals/>
+  <fixtures>
+    <fact-data>
+      <type>Applicant</type>
+      <fieldData>
+        <field-data>
+          <name>yearlyIncome</name>
+          <value>120000</value>
+          <nature>4</nature>
+        </field-data>
+      </fieldData>
+      <name>applicant</name>
+      <isModify>false</isModify>
+    </fact-data>
+    <fact-data>
+      <type>Loan</type>
+      <fieldData/>
+      <name>loan</name>
+      <isModify>false</isModify>
+    </fact-data>
+    <org.drools.workbench.models.testscenarios.shared.ActivateRuleFlowGroup>
+      <name>initialisation-rules</name>
+    </org.drools.workbench.models.testscenarios.shared.ActivateRuleFlowGroup>
+    <execution-trace>
+      <executionTimeResult>2</executionTimeResult>
+      <numberOfRulesFired>2</numberOfRulesFired>
+    </execution-trace>
+    <expect-fact>
+      <fieldValues>
+        <expect-field>
+          <fieldName>monthlyIncome</fieldName>
+          <expected>10000.0</expected>
+          <successResult>true</successResult>
+          <explanation>[applicant] field [monthlyIncome] was [10000.0].</explanation>
+          <operator>==</operator>
+          <nature>1</nature>
+        </expect-field>
+        <expect-field>
+          <fieldName>eligible</fieldName>
+          <expected>true</expected>
+          <successResult>true</successResult>
+          <explanation>[applicant] field [eligible] was [true].</explanation>
+          <operator>==</operator>
+          <nature>0</nature>
+        </expect-field>
+      </fieldValues>
+      <name>applicant</name>
+      <anonymous>false</anonymous>
+    </expect-fact>
+    <expect-fact>
+      <fieldValues>
+        <expect-field>
+          <fieldName>approved</fieldName>
+          <expected>false</expected>
+          <successResult>true</successResult>
+          <explanation>[loan] field [approved] was [false].</explanation>
+          <operator>==</operator>
+          <nature>0</nature>
+        </expect-field>
+      </fieldValues>
+      <name>loan</name>
+      <anonymous>false</anonymous>
+    </expect-fact>
+    <expect-rule>
+      <ruleName>Setting default values on Applicant</ruleName>
+      <explanation>Rule [Setting default values on Applicant] was activated 1 times.</explanation>
+      <expectedFire>true</expectedFire>
+      <successResult>true</successResult>
+      <actualResult>1</actualResult>
+    </expect-rule>
+    <expect-rule>
+      <ruleName>Setting default values on Loan</ruleName>
+      <explanation>Rule [Setting default values on Loan] was activated 1 times.</explanation>
+      <expectedFire>true</expectedFire>
+      <successResult>true</successResult>
+      <actualResult>1</actualResult>
+    </expect-rule>
+  </fixtures>
+  <lastRunResult>2018-12-14 05:44:32.670 UTC</lastRunResult>
+  <rules/>
+  <inclusive>false</inclusive>
+  <packageName>com.loan_application.loan_application_rules</packageName>
+  <imports>
+    <imports/>
+  </imports>
+  <ksessions>
+    <string>defaultKieSession</string>
+  </ksessions>
+</scenario>
